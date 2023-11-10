@@ -1,31 +1,39 @@
-var cityButton = document.querySelector(".cityButton")
-cityButton.addEventListener("click", function(){
-    console.log("click");
-});
+// console.log('hi')
+// const searchButton = document.querySelector("#searchBtn");
+// console.log(searchButton)
+// const handleSearch = () => {
+//   console.log("searching")
+// }
+// searchButton.addEventListener("click", handleSearch)
 
-
-console.log("dc7271cf24099ef606a3cfa6b3d2e65f");
-var APIKey = "dc7271cf24099ef606a3cfa6b3d2e65f";
-const city = "London"
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-fetch(queryURL).then(response => {
-    response.json().then(response => {
-        console.log(response);
-        const htmlString = `
+const searchBtn = document.querySelector("#searchBtn")
+const handleSearch = () => {
+    var textInput = document.querySelector("#textInput")
+    const inputSearchValue = textInput.value
+    console.log(inputSearchValue);
+    
+    var APIKey = "dc7271cf24099ef606a3cfa6b3d2e65f";
+    const city = inputSearchValue
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "git &units=imperial&appid=" + APIKey;
+    fetch(queryURL).then(response => {
+        response.json().then(response => {
+            console.log(response);
+            const htmlString = `
             <main>
             <h1>Location: ${response.name} </h1> 
             <h1>Weather: ${response.weather[0].main} </h1>
             <h1>Temp: ${response.main.temp} °F</h1>
             <h1>Wind: ${response.wind.speed} MPH</h1>
-                <h1>Humidity: ${response.main.humidity} %</h1>
-                <p>Learn how to convert a string to HTML using JavaScript.</p>
-            </main>
+            <h1>Humidity: ${response.main.humidity} %</h1>
+            <h1>Country: ${response.sys.country} </h1>
+        <p>Learn how to convert a string to HTML using JavaScript.</p>
+        </main>
         `;
         
         const convertStringToHTML = htmlString => {
             const parser = new DOMParser();
             const html = parser.parseFromString(htmlString, 'text/html');
-        
+            
             return html.body;
         }
         const body = convertStringToHTML(htmlString);
@@ -34,10 +42,5 @@ fetch(queryURL).then(response => {
     })
 })
 
-// const myarry = [50,60,70,80]
-//     const myObject = {
-//         foo: 42,
-//         bar: 17,
-//         monke: 16,
-//       };
-// console.log(myarry[-1]);
+}
+searchBtn.addEventListener("click", handleSearch);
