@@ -20,12 +20,12 @@ const handleSearch = () => {
             // console.log(response);
             const htmlString = `
             <main>
-            <h1>Location: ${response.name} </h1> 
-            <h1>Weather: ${response.weather[0].icon} </h1>
-            <h1>Temp: ${response.main.temp} °F</h1>
-            <h1>Wind: ${response.wind.speed} MPH</h1>
-            <h1>Humidity: ${response.main.humidity} %</h1>
-            <h1>Country: ${response.sys.country} </h1>
+            <h6>Location: ${response.name} </h6> 
+            <h6>Weather: ${response.weather[0].icon} </h6>
+            <h6>Temp: ${response.main.temp} °F</h6>
+            <h6>Wind: ${response.wind.speed} MPH</h6>
+            <h6>Humidity: ${response.main.humidity} %</h6>
+            <h6>Country: ${response.sys.country} </h6>
         <p>Learn how to convert a string to HTML using JavaScript.</p>
         </main>
         `;
