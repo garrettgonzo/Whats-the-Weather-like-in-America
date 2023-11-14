@@ -29,7 +29,7 @@ const handleSearch = () => {
     
     var APIKey = "dc7271cf24099ef606a3cfa6b3d2e65f";
     const presentCity = inputSearchValue
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + presentCity + "&units=imperial&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + presentCity + "&units=imperial&appid=" + APIKey;
     fetch(queryURL).then(response => {
         response.json().then(response => {
             // console.log(response);
